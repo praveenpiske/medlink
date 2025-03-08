@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: medlink # Replace with your app's name
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    pythonVersion: 3.12.1 #or your python version.
