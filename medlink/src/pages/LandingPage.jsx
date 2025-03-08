@@ -29,6 +29,7 @@ import { use } from "react";
 import { useState } from "react";
 import NewsCard from "../components/common/NewsCard";
 import "../styles/components/news.css";
+import httpClient from "../httpClient";
 const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 
 const LandingPage = () => {
@@ -37,16 +38,8 @@ const LandingPage = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch(
-          "https://newsapi.org/v2/top-headlines?country=us&category=health",
-          {
-            headers: {
-              "X-Api-Key": apiKey,
-            },
-          }
-        );
-        const data = await response.json();
-        setArticles(data.articles);
+        const data = await httpClient.get("/api/news")
+        setArticles(data.data.articles);
       } catch (error) {
         console.error("Error fetching news:", error);
       }

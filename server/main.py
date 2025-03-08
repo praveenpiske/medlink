@@ -7,6 +7,7 @@ import pymongo
 from pymongo.server_api import ServerApi
 from dotenv import load_dotenv
 import os
+import requests
 
 load_dotenv()
 secret_key = secrets.token_hex(16)
@@ -208,6 +209,21 @@ def update_details():
             patients.update_one({'email': email}, {'$set': {'username': data['username'], 'phone': data['phone'],  'passwd': data['passwd'], 'age': data['age'], 'gender': data['gender']}})
         return jsonify({'message': 'Patient details updated successfully'}), 200
  
+NEWS_API_KEY = os.getenv('NEWS_API_KEY')
+@app.route('/api/news', methods=['GET'])
+def get_news():
+    url = 'https://newsapi.org/v2/top-headlines'
+    params = {
+        'country': 'us',
+        'category': 'health',
+        'apiKey': NEWS_API_KEY
+    }
+    try:
+        response = requests.get(url, params=params)
+        response.raise_for_status()  # Raise HTTPError for bad responses (4xx or 5xx)
+        return jsonify(response.json())
+    except requests.exceptions.RequestException as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
