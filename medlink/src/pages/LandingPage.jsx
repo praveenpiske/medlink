@@ -18,7 +18,7 @@ import commonContext from "../contexts/common/commonContext";
 import useScrollDisable from "../hooks/useScrollDisable";
 import {Canvas} from "@react-three/fiber";
 import {PerspectiveCamera} from "@react-three/drei";
-import Heart from "../components/3dmodels/heart";
+import Heart from "../components/3dmodels/Heart";
 import Stethoscope from "../components/3dmodels/stethoscope";
 import Tablets from "../components/3dmodels/Tablets";
 import CanvasLoader from "../components/3dmodels/CanvasLoader";
