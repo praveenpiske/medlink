@@ -1,0 +1,719 @@
+#home-page {
+    padding-top: 6rem;
+
+    .check-verify-status {
+        margin: 2rem auto;
+        width: min(1100px, 93vw);
+        color: var(--blue-color-8);
+        @include flexbox(center, center); 
+
+        button {
+            background-color: var(--blue-color-8);
+            color: var(--white-color);
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 0 10px 1px var(--blue-color-2);
+            margin-left: 1rem;
+            
+            &:hover, &:active {
+                background-color: var(--blue-color-9);
+            }
+        }
+    }
+
+    .is-meet-div {
+        border: 2px solid var(--blue-color-2);
+        width: min(1100px, 93vw);
+        position: relative;
+        padding: 3rem 10px;
+        transition: all 0.3s ease-in-out;
+        margin: 0 auto;
+        border-radius: 8px;
+        margin-bottom: 3rem;
+        
+        &:hover {
+            width: min(1120px, 95vw);
+            border: 3px solid var(--blue-color-4);
+            padding: 3.5rem 0;
+
+            @include devices(xs) {
+                padding: 3.5rem 10px;
+            }
+        }
+
+        .meet-bg {
+            background-image: url(/search_patients.png);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            filter: blur(1px);
+            -webkit-filter: blur(1px);
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+        }
+
+        .main {
+            @include flexbox(space-around, center);
+    
+            .content-div {
+                color: var(--blue-color-8);
+                @include flexbox(flex-start, flex-end);
+                flex-wrap: wrap;
+
+                h2 {
+                    margin-right: 10px;
+                }
+
+                p {
+                    font-size: 1.2em;
+                }
+            }
+    
+            .test-btn > button {
+                background-color: var(--blue-color-8);
+                color: var(--white-color);
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                box-shadow: 0 0 10px 1px var(--blue-color-2);
+                
+                &:hover, &:active {
+                    background-color: var(--blue-color-9);
+                }
+
+                &:disabled {
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+
+
+    .dis-pred-test-div {
+        border: 2px solid var(--blue-color-2);
+        width: min(1100px, 93vw);
+        position: relative;
+        padding: 3rem 10px;
+        transition: all 0.3s ease-in-out;
+        margin: 0 auto;
+        border-radius: 8px;
+        margin-bottom: 3rem;
+        
+        &:hover {
+            width: min(1120px, 95vw);
+            border: 3px solid var(--blue-color-4);
+            padding: 3.5rem 0;
+            @include devices(xs) {
+                padding: 3.5rem 10px;
+            }
+        }
+
+        .test-bg {
+            background-image: url(/syringe_bg.png);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            filter: blur(2px);
+            -webkit-filter: blur(2px);
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+        }
+
+        .main {
+            @include flexbox(space-around, center);
+    
+            .content-div {
+                color: var(--blue-color-8);
+                @include flexbox(flex-start, flex-end);
+                flex-wrap: wrap;
+                h2 {
+                    margin-right: 10px;
+                }
+                p {
+                    font-size: 1.2em;
+                }
+            }
+    
+            .test-btn > button {
+                background-color: var(--blue-color-8);
+                color: var(--white-color);
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                box-shadow: 0 0 10px 1px var(--blue-color-2);
+                
+                &:hover, &:active {
+                    background-color: var(--blue-color-9);
+                }
+            }
+        }
+    }
+
+
+    .upcoming-appointments, .past-appointments {
+        width: min(1100px, 93vw);
+        margin: 0 auto;
+        margin-bottom: 4rem;
+
+        h2 {
+            margin-bottom: 1rem;
+            color: var(--blue-color-8);
+        }
+
+        .main {
+            ul {
+
+                .appt-item {
+                    padding: 0.5rem 1rem;
+                    margin-bottom: 1rem;
+                    border: 1px solid var(--blue-color-4);
+                    background-color: var(--blue-color-2);
+                    transition: all 0.3s ease-in-out;
+                    border-radius: 8px;
+                    @include flexbox(space-between, center);
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    &:hover {
+                        border: 2px solid var(--blue-color-5);
+                        padding: 0.7rem 1rem;
+                    }
+
+                    .content {
+                        color: var(--blue-color-8);
+                        @include flexbox(flex-start, flex-end);
+                        flex-wrap: wrap;
+
+                        p {
+                            &:first-child {
+                                font-size: 1.2em;
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+
+                    .join-btn {
+                        background-color: var(--blue-color-8);
+                        color: var(--white-color);
+                        padding: 1rem 2rem;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        transition: all 0.3s ease-in-out;
+                        box-shadow: 0 0 10px 1px var(--blue-color-2);
+                        
+                        &:hover, &:active, &:disabled {
+                            background-color: var(--blue-color-9);
+                        }
+
+                        &:disabled {
+                            cursor: not-allowed;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+
+    .news-section {
+        width: min(1100px, 93vw);
+        margin: 0 auto;
+        margin-bottom: 4rem;
+
+        h2 {
+            margin-bottom: 1rem;
+            color: var(--blue-color-8);
+        }
+
+        .content {
+            border: 2px solid var(--blue-color-5);
+            background-color: var(--blue-color-2);
+            padding: 10px;
+            border-radius: 12px;
+
+            .messages {
+                width: min(100%, 600px);
+                margin: 0 auto;
+
+                .head {
+                    text-align: center;
+                    color: var(--blue-color-8);
+                    margin-bottom: 20px;
+
+                    .news-link {
+                        transition: all 0.3s ease-in-out;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                
+                .message-item {
+                    @include flexbox(space-between, center);
+                    @include devices(sm) {
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-start;
+                    }
+
+                    color: var(--white-color);
+                    margin: 10px 0;
+
+                    .msg-name {
+                        background-color: var(--blue-color-5);
+                        padding: 0.6rem 1rem;
+                        border-radius: 20px 15px 15px 0;
+                        max-width: 28%;
+                        line-height: 1.4rem;
+                        word-break: break-all;
+
+                        @include devices(sm) {
+                            margin-top: 10px;
+                            max-width: 90%;
+                        }
+                    }
+                    
+                    .msg-text {
+                        padding: 0.6rem 1rem;
+                        border-radius: 15px 20px 0 15px;
+                        background-color: var(--blue-color-5);
+                        align-self: flex-end;
+                        max-width: 70%;
+                        line-height: 1.4rem;
+                        word-break: break-all;
+
+                        @include devices(sm) {
+                            margin-top: 10px;
+                            max-width: 90%;
+                        }
+                    }
+                }
+            }
+
+            .post-message {
+                padding: 10px 0;
+                @include flexbox(center, center);
+                
+                @include devices(sm) {
+                    flex-direction: column;
+                }
+
+                input {
+                    background-color: var(--blue-color-1);
+                    outline: 1px solid var(--blue-color-1);
+                    border: 1px solid var(--blue-color-1);
+                    color: var(--blue-color-8);
+                    padding: .5rem;
+                    width: 400px;
+                    transition: all .3s ease-in-out;
+
+                    @include devices(sm) {
+                        width: 80vw;
+                        margin: 0 10px;
+                    }
+                    
+                    &:focus {
+                        outline-color: var(--blue-color-2);
+                        border-color: var(--blue-color-2);
+                        box-shadow: 0 0 6px 2px var(--blue-color-1);
+                    }
+                }
+
+                button {
+                    margin-left: 1rem;
+                    padding: 0.7rem 1rem;
+                    border-radius: 4px;
+                    color: var(--white-color);
+                    transition: all 0.3s ease;
+                    background-color: var(--blue-color-4);
+
+                    @include devices(sm) {
+                        margin-top: 1rem;
+                        width: 80vw;
+                        margin-left: 0;
+                    }
+
+                    &:hover, &:active {
+                        background-color: var(--blue-color-6);
+                    }
+
+                    &:disabled {
+                        cursor: not-allowed;
+                        background-color: var(--blue-color-6);
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    .todays-tip {
+        width: min(1100px, 93vw);
+        background-color: #eedfa3;
+        border: 2px solid #ff5500;
+        padding: 1.5rem;
+        color: #ff5500;
+        border-radius: 8px;
+        margin: 0 auto;
+        margin-bottom: 5rem;
+        transition: all 0.3s ease-in-out;
+
+        ::selection {
+            background-color: #ff5500;
+            color: #fff;
+        }
+        
+        ::-moz-selection {
+            background-color: #ff5500;
+            color: #fff;
+        }        
+
+        &:hover {
+            width: min(1130px, 95vw);
+            padding: 2rem;
+            border: 3px solid var(--orange-color-1)
+        }
+
+        .head {
+            @include flexbox(flex-start, center);
+            margin-bottom: 1rem;
+            color: #ff5900;
+
+            .bulb-icon {
+                font-size: 2em;
+                margin-right: 10px;
+            }
+        }
+
+        .content {
+            padding: 0 1rem;
+            h3 {
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                margin-bottom: 0.5rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+    }
+    .make-available {
+        z-index: 200;
+        position:fixed;
+        bottom: 40px;
+        left:20px;
+        padding:12px;
+        border-radius: 10px;
+        background-color: var(--blue-color-9);
+        color:white;
+        cursor: pointer;
+        @include transition($duration: 0.3s);
+        @include flexbox(center, center);
+        flex-direction: column;
+
+        &:hover {
+            background-color: var(--blue-color-8),
+        }
+
+        .avilability_alert {
+            position: absolute;
+            top: -60px;
+            color: #000;
+            width: 250px;
+            left: 0;
+        }
+        
+        .doctor_status {
+            width: 100%;
+            margin: 5px auto;
+            height: 3px;
+            background-color: red;
+            margin-bottom: 0;
+            border-radius: 8px;
+            
+            &.available {
+                background-color: var(--whatsapp-color);
+            }
+        }
+
+    }
+}
+
+#available-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 14px 20px;
+    width: min(95%, 400px);
+    box-shadow: 0 0 10px 1px var(--blue-color-2);
+    border: 2px solid var(--blue-color-2);
+    background-color: var(--white-color);
+    border-radius: 8px;
+    color: var(--blue-color-7);
+    text-align: center;
+
+    .close_btn_div {
+        text-align: right;
+        color: var(--blue-color-5);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        margin-bottom: 5px;
+        &:hover {
+            color: var(--blue-color-8);
+        }
+    }
+
+    .available-details {
+        @include flexbox(center, center);
+        flex-direction: column;
+        gap: 10px;
+        color: #fff;
+        margin: 1rem 0;
+
+        .note {
+            background-color: var(--blue-color-5);
+            padding: 10px;
+            border-radius: 10px;
+            width: min(90%, 250px);
+            cursor: pointer;
+            @include transition($duration: 0.3s);
+            &:hover {
+                background-color: var(--blue-color-6);
+            }
+        }
+    }
+}
+
+
+#feedback-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(500px, 90vw);
+    padding: 14px 20px;
+    box-shadow: 0 0 10px 1px var(--blue-color-2);
+    border: 2px solid var(--blue-color-2);
+    background-color: var(--white-color);
+    border-radius: 8px;
+    color: var(--blue-color-7);
+    text-align: center;
+
+    .close_btn_div {
+        text-align: right;
+        color: var(--blue-color-5);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--blue-color-8);
+        }
+    }
+
+    h3 {
+        margin: 1rem 0;
+    }
+
+    .consultation-qn {
+        margin-bottom: 0.7rem;
+    }
+
+    .rating-icons {
+        @include flexbox(center, center);
+        margin-bottom: 1rem;
+
+        .icon {
+            margin: 0.5rem;
+            font-size: 2em;
+            cursor: pointer;
+        }
+    }
+
+    .rating-text {
+        margin-bottom: 1rem;
+    }
+
+    .submit-btn > button {
+        background-color: var(--blue-color-3);
+        border: 1px solid var(--blue-color-5);
+        color: var(--white-color);
+        padding: 10px 12px;
+        border-radius: 5px;
+        margin: 8px 5px;
+        font-family: 'Montserrat', sans-serif;
+        transition: all 0.3s ease-in-out;
+        
+        &:hover, &:active, &:disabled {
+            background-color: var(--blue-color-5);
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+    }
+
+    .doctor-feedback {
+        padding-bottom: 1.5rem;
+    }
+
+}
+
+
+
+#search-patient-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(500px, 90vw);
+    padding: 14px 20px;
+    box-shadow: 0 0 10px 1px var(--blue-color-2);
+    border: 2px solid var(--blue-color-2);
+    background-color: var(--white-color);
+    border-radius: 8px;
+    color: var(--blue-color-7);
+    text-align: center;
+
+    .close_btn_div {
+        text-align: right;
+        color: var(--blue-color-5);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--blue-color-8);
+        }
+    }
+
+    .searching-div {
+        padding: 1rem 10px;
+        text-align: center;
+        @include flexbox(center, center);
+        flex-direction: column;
+
+        .search-div {
+            position: relative;
+            padding: 1rem;
+            margin-bottom: 2rem;
+
+            .patients-icon {
+                width: min(70vw, 200px);
+                height: min(70vw, 200px);
+                color: var(--blue-color-5);
+            }
+
+            .done-icon-div {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                width: min(100px, 50vw);
+                height: min(100px, 50vw);
+                border-radius: 100%;
+                background-color: var(--white-color);
+                border: 5px solid var(--whatsapp-color);
+                padding: 10px;
+                color: var(--whatsapp-color);
+                @include flexbox(center, center);
+                
+                .done-icon {
+                    width: min(90px, 45vw);
+                    height: min(90px, 45vw);
+                }
+            }
+
+            .circle {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                width: min(100px, 50vw);
+                height: min(100px, 50vw);
+                border-radius: 100%;
+                animation: rotate 2s ease-in-out infinite;
+
+                .search-img-div {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: min(150px, 40vw);
+                    height: min(150px, 40vw);
+                    animation: maintain 2s ease-in-out infinite;
+    
+                    .search-img {
+                        width: inherit;
+                        height: inherit;
+                    }
+                }
+            }
+
+
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0);
+                }
+            
+                100% {
+                    transform: rotate(-360deg);
+                }
+            }
+
+            @keyframes maintain {
+                0% {
+                    transform: rotate(0);
+                }
+            
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+
+        .connect-details {
+            padding-top: 1rem;
+            @include flexbox(center, center);
+            flex-direction: column;
+
+            .connect-div {
+                padding: 1rem 0;
+                color: var(--white-color);
+
+                button {
+                    background-color: var(--blue-color-3);
+                    border: 1px solid var(--blue-color-5);
+                    color: var(--white-color);
+                    padding: 10px 12px;
+                    border-radius: 5px;
+                    margin: 8px 5px;
+                    font-family: 'Montserrat', sans-serif;
+                    transition: all 0.3s ease-in-out;
+                    
+                    &:hover, &:active, &:disabled {
+                        background-color: var(--blue-color-5);
+                    }
+                }
+            }
+        }
+    }
+
+}

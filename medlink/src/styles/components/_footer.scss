@@ -1,0 +1,121 @@
+#footer {
+    background-color: var(--blue-color-1);
+    color: var(--blue-color-8);
+    @include padding-y(3rem, 2rem);
+
+    .separator {
+        @include margin-y(2.5rem, 2rem);
+        opacity: 0.7;
+    }
+}
+
+.footer_wrapper {
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+    justify-items: center;
+    gap: 2rem;
+
+    @include devices(md) {
+        grid-template-columns: 1.4fr 1fr;
+        justify-items: unset;
+        gap: 4rem;
+    }
+
+    @include devices(xs) {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+.foot_about {
+    h2 {
+        text-align: center;
+    }
+
+    .foot_logo_div {
+        @include flexbox(center, center);
+    }
+}
+
+.foot_subs {
+    p {
+        @include margin-y(1rem, 1rem);
+        font-size: 0.875rem;
+        opacity: 0.9;
+    }
+
+    .btn {
+        margin-top: 1rem;
+    }
+}
+
+.foot_menu {
+    margin: 0 1rem;
+    ul {
+        margin-top: 1.8rem;
+        display: grid;
+        gap: 1rem;
+        min-width: 200px;
+
+        .arrow-icon {
+            font-size: 0.65em;
+        }
+
+        li {
+            
+            transition: all 0.3s ease-in-out;
+            &:hover, &:active {
+                margin-left: 10px;
+
+                a {
+                    opacity: 1;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        a {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    }
+}
+
+.sub_footer_wrapper {
+    @include flexbox(space-between, center);
+
+    @include devices(md) {
+        @include flexbox();
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+}
+
+.foot_copyright {
+    font-size: 0.95rem;
+    
+    a {
+        opacity: 0.8;
+        color: var(--blue-color-8);
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            color: var(--blue-color-9);
+            opacity: 1;
+        }
+    }
+}
+
+.foot_social {
+    @include flexbox();
+    gap: 2rem;
+    font-size: 1.2rem;
+    margin-right: 4rem;
+
+
+    .icon {
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            color: var(--blue-color-9);
+        }
+    }
+}

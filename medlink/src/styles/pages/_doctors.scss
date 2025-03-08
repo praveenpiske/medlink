@@ -1,0 +1,469 @@
+.MuiDataGrid-root {
+
+    width: min(1150px, 95vw);
+    border: none;
+
+    .MuiDataGrid-cell {
+        border: none;
+        outline: none;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 12px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: transparent;
+    }
+
+    .name-column--cell {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .social-column--cell {
+        padding: 5px;
+        @include flexbox(space-evenly, center);
+
+        .social-icon {
+            
+            &.whatsapp {
+                color: var(--whatsapp-color);
+            }
+            
+            &.mail {
+                color: #808080;
+            }
+        }
+    }
+
+    .ratings-column--cell {
+        padding: 5px;
+        @include flexbox(center, center);
+
+        .ratings-icon {
+            color: var(--yellow-color-3);
+            margin-left: 5px;
+        }
+    }
+
+    .status-column--cell {
+        padding: 5px;
+        @include flexbox(center, center);
+
+        .green-icon {
+            color: var(--whatsapp-color);
+            margin-right: 5px;
+        }
+
+        .red-icon {
+            color: rgb(255,0,0);
+            margin-right: 5px;
+        }
+    }
+
+    .appointment-column--cell {
+        padding: 5px;
+        @include flexbox(space-evenly, center);
+
+        button {
+            background-color: var(--blue-color-3);
+            padding: 0.7rem 1rem;
+            border-radius: 4px;
+            color: var(--white-color);
+            transition: all 0.3s ease;
+            
+            &:hover, &:active {
+                background-color: var(--blue-color-5);
+            }
+        }
+    }
+}
+
+.MuiDataGrid-panelContent {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.MuiDataGrid-filterForm {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.MuiDataGrid-cell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.MuiDataGrid-toolbarContainer > button {
+    background-color: var(--blue-color-3);
+    border: 1px solid var(--blue-color-5);
+    color: var(--white-color);
+    padding: 4px 8px;
+    border-radius: 5px;
+    margin: 8px 5px;
+    font-family: 'Montserrat', sans-serif;
+    
+    &:hover, &:active {
+        background-color: var(--blue-color-5);
+    }
+
+}
+
+#doctors-page {
+    margin: 100px 0;
+    text-align: center;
+
+    .doctor-details {
+        min-height: 600px;
+        padding: 10px;
+        width: min(1300px, 100vw);
+        margin: 0 auto;
+        color: var(--blue-color-8);
+
+        .heading {
+
+            @include flexbox(center, center);
+
+            .refresh-btn {
+                position: relative;
+                margin-left: 10px;
+
+                span {
+                    background-color: var(--blue-color-5);
+                    cursor: pointer;
+                    transition: all 0.3s ease-in-out;
+                    border-radius: 5px;
+                    padding: 0px 5px 3px 5px;
+                    font-size: 1.5em;
+                    color: var(--white-color);
+
+                    &.active {
+                        cursor: not-allowed;
+
+                        .refresh-icon {
+                            animation: loading 0.7s linear infinite;
+                        }
+
+                        @keyframes loading {
+                            0% {
+                                transform: rotate(0deg);
+                            }
+                            100% {
+                                transform: rotate(360deg);
+                            }
+                        }
+                    }
+    
+                    &:hover {
+                        background-color: var(--blue-color-7);
+                    }
+                }
+
+                &:hover {
+                    .refresh-tooltip {
+                        @include toggleVisibility(visible, 1);
+                    }
+                }
+    
+                .refresh-tooltip {
+                    @include toggleVisibility(hidden, 0);
+                    position: absolute;
+                    top: -8px;
+                    left: 50px;
+                    transform: translateX(0);
+                    z-index: 999;
+                }
+            }
+        }
+
+        
+        .doctor-details-table {
+            min-height: 500px;
+            max-height: 500px;
+            box-shadow: 0 0 10px 1px var(--blue-color-2);
+            border-radius: 8px;
+            margin: 20px auto;
+        }
+
+    }
+
+}
+
+
+#meet-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // width: min(570px, 90vw);
+    padding: 14px 20px;
+    box-shadow: 0 0 10px 1px var(--blue-color-2);
+    border: 2px solid var(--blue-color-2);
+    background-color: var(--white-color);
+    border-radius: 8px;
+    color: var(--blue-color-7);
+    text-align: center;
+
+    .close_btn_div {
+        text-align: right;
+        color: var(--blue-color-5);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--blue-color-8);
+        }
+    }
+
+    .meet-details-div {
+
+        .meet-details {
+            margin: 10px 0 25px 0;
+            @include flexbox(center, center);
+            flex-wrap: wrap;
+
+            .create-meet {
+                background-color: var(--grey-color-3);
+                color: var(--white-color);
+                padding: 1rem 2rem;
+                margin: 1rem;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                box-shadow: 0 0 10px 1px var(--grey-color-2);
+                
+                &:hover, &:active {
+                    background-color: var(--blue-color-7);
+                }
+            }
+        }
+    }
+
+    .instant-meet-div {
+        padding-bottom: 25px;
+        text-align: center;
+
+        button {
+            background-color: var(--blue-color-3);
+            padding: 0.7rem 1rem;
+            border-radius: 4px;
+            color: var(--white-color);
+            transition: all 0.3s ease;
+            
+            &:hover, &:active {
+                background-color: var(--blue-color-5);
+            }
+        }
+
+        .loader {
+            @include flexbox(center, center);
+
+            .wave {
+              width: 5px;
+              height: 100px;
+              background: linear-gradient(45deg, red, #f5f5f5);
+              margin: 10px;
+              animation: wave 1s linear infinite;
+              border-radius: 20px;
+            }
+            .wave:nth-child(2) {
+              animation-delay: 0.1s;
+            }
+            .wave:nth-child(3) {
+              animation-delay: 0.2s;
+            }
+            .wave:nth-child(4) {
+              animation-delay: 0.3s;
+            }
+            .wave:nth-child(5) {
+              animation-delay: 0.4s;
+            }
+            .wave:nth-child(6) {
+              animation-delay: 0.5s;
+            }
+            .wave:nth-child(7) {
+              animation-delay: 0.6s;
+            }
+            .wave:nth-child(8) {
+              animation-delay: 0.7s;
+            }
+            .wave:nth-child(9) {
+              animation-delay: 0.8s;
+            }
+            .wave:nth-child(10) {
+              animation-delay: 0.9s;
+            }
+            
+            @keyframes wave {
+              0% {
+                transform: scale(0);
+              }
+              50% {
+                transform: scale(1);
+              }
+              100% {
+                transform: scale(0);
+              }
+            }
+        }
+
+    }
+
+    .schedule-meet-div {
+        padding-bottom: 25px;
+
+        .schedule-meet {
+            @include flexbox(center, center);
+            flex-direction: column;
+            padding: 20px;
+
+            input {
+                border: 2px solid var(--blue-color-3);
+                border-radius: 8px;
+                padding: 10px 12px;
+                cursor: pointer;
+                margin-bottom: 10px;
+                padding: 11px 12px;
+            }
+
+            .timings {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                width: min(360px, 90vw);
+                border: 2px solid var(--blue-color-3);
+                border-radius: 8px;
+                padding: 5px;
+                gap: 5px;
+                
+                .timing-slot {
+                    border: 2px solid var(--blue-color-3);
+                    border-radius: 8px;
+                    cursor: pointer;
+                    @include flexbox(center, center);
+                    padding: 10px 5px;
+
+                    .slot {
+                        font-size: 1em;
+                        color: var(--whatsapp-color);
+                    }
+
+                    &.not-avail {
+                        cursor: not-allowed;
+                        background-color: var(--blue-color-2);
+                        .slot {
+                            color: rgb(255,0,0);
+                        }
+                    }
+
+                    &.active {
+                        background-color: var(--blue-color-1);
+                    }
+
+                    .time {
+                        margin: 0 10px;
+                    }
+                }
+            }
+        }
+
+        .schedule-btn {
+            @include flexbox(center, center);
+
+            button {
+                background-color: var(--blue-color-3);
+                border: 1px solid var(--blue-color-5);
+                color: var(--white-color);
+                padding: 10px 12px;
+                border-radius: 5px;
+                margin: 8px 5px;
+                font-family: 'Montserrat', sans-serif;
+                transition: all 0.3s ease;
+                
+                &:hover, &:active, &:disabled {
+                    background-color: var(--blue-color-5);
+                }
+
+                &:disabled {
+                    cursor: not-allowed;
+                }
+            }
+
+        }
+
+    }
+    
+    
+    .balance-details {
+        @include flexbox(center, flex-start);
+        flex-direction: column;
+        margin: 0 1rem;
+
+        h3 {
+            font-size: 1.3em;
+            color: var(--blue-color-8);
+        }
+
+        p {
+            color: rgb(200, 0, 0);
+        }
+
+        .fee-split {
+            margin-top: 1rem;
+            @include flexbox(space-between, center);
+            width: 100%;
+
+            .text {
+                font-size: 1.1em;
+                color: var(--blue-color-8);
+                text-align: left;
+                max-width: 70%;
+            }
+            
+            .fee {
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+
+        }
+
+        .last {
+            border-top: 2px solid var(--blue-color-7);
+            padding-top: 1rem;
+
+            .text, .fee {
+                color: rgb(200, 0, 0);
+            }
+                
+        }
+
+        .recharge-btn {
+            background-color: var(--blue-color-5);
+            border: 1px solid var(--blue-color-6);
+            color: var(--white-color);
+            padding: 10px 12px;
+            border-radius: 5px;
+            margin: 1.5rem auto;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            
+            &:hover, &:active {
+                background-color: var(--blue-color-6);
+            }   
+        }
+
+    }
+
+}

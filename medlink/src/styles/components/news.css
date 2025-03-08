@@ -1,0 +1,51 @@
+.articles {
+    display: flex;
+    flex-wrap: nowrap; /* Keeps everything in one row */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scrollbar-width: thin; /* For Firefox */
+    gap: 10px;
+    padding: 10px;
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar Styling */
+.articles::-webkit-scrollbar {
+    height: 8px; /* Scrollbar height */
+}
+
+.articles::-webkit-scrollbar-thumb {
+    background-color: #4D51B0;
+    border-radius: 4px;
+}
+
+.articles::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.news-card {
+    flex: 0 0 auto; /* Prevents cards from shrinking */
+    width: 280px;
+    height: 300px;
+}
+
+.scroll-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.scroll-btn {
+    background-color: #4D51B0;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.scroll-btn:hover {
+    background-color: #3a3f9b;
+}

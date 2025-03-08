@@ -1,0 +1,4 @@
+@include devices(xs) {
+    @include padding-x(1rem, 1rem);
+    @include padding-y(2rem, 2rem);
+}
