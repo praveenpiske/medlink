@@ -8,8 +8,6 @@ from pymongo.server_api import ServerApi
 from dotenv import load_dotenv
 import os
 import requests
-import logging
-
 
 load_dotenv()
 secret_key = secrets.token_hex(16)
@@ -212,11 +210,6 @@ def update_details():
         return jsonify({'message': 'Patient details updated successfully'}), 200
  
 NEWS_API_KEY = os.getenv('NEWS_API_KEY')
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
-
 @app.route('/api/news', methods=['GET'])
 def get_news():
     url = 'https://newsapi.org/v2/top-headlines'
@@ -225,18 +218,12 @@ def get_news():
         'category': 'health',
         'apiKey': NEWS_API_KEY
     }
-    logger.info(f"API Key: {NEWS_API_KEY}") #Log the api key.
     try:
         response = requests.get(url, params=params)
-        response.raise_for_status()
-        logger.info(f"Raw News API response: {response.text}") #Log the raw response.
+        response.raise_for_status()  # Raise HTTPError for bad responses (4xx or 5xx)
         return jsonify(response.json())
     except requests.exceptions.RequestException as e:
-        logger.error(f"Request error fetching news: {e}")
         return jsonify({'error': str(e)}), 500
-    except Exception as e: #Catch any other error.
-        logger.error(f"Unexpected error: {e}")
-        return jsonify({'error': 'An unexpected error has occured'}), 500
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
